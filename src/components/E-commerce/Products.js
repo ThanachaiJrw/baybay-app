@@ -3,12 +3,8 @@ import { Grid } from '@mui/material'
 
 import ProductCard from './ProductCard'
 
-const products=[
-    {id:1,name:'Burning Course',description:'Burn your fat',price:'$500'},
-    {id:2,name:'Herculis Cry',description:'improve your muscle more than hurculis',price:'$5000'}
-]
-
-function Products() {
+function Products({products}) {
+    console.log(products)
   return (
     <main>
         <Grid container justifyContent='center' spacing={4}>

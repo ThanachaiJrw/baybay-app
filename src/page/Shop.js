@@ -8,9 +8,14 @@ const Shop = () => {
 
   const fetchProducts =async()=>{
 
-    const {data} =await commerce.products.list();
+    const {data} = await commerce.products.list();
+    // console.log({data})
 
-    setProducts({data})
+    // const respond = await commerce.products.list();
+    // console.log(respond)
+
+    setProducts(data)
+    // setProducts(respond)
   }
 
   useEffect(()=>{
@@ -19,7 +24,7 @@ const Shop = () => {
 
   return (
     <div>
-      <Products />
+      <Products products={products}/>
     </div>
   )
 }
