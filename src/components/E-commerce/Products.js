@@ -1,19 +1,29 @@
 import React from 'react'
-import { Grid } from '@mui/material'
+import { Grid ,IconButton , Box, Badge} from '@mui/material'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import ProductCard from './ProductCard'
 
-function Products({products}) {
-    console.log(products)
+function Products({products , onAddToCart ,totalItems}) {
+    // console.log(products)
   return (
     <main>
         <Grid container justifyContent='center' spacing={4}>
             {products.map((product)=>(
                 <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                    <ProductCard product={product}/>
+                    <ProductCard product={product} onAddToCart={onAddToCart}/>
                 </Grid>
             ))}
         </Grid>
+
+
+        <Box sx={{position:'fixed',bottom:'50px',right:'250px',height:'50px',width:'50px',borderRadius:'50%'}}>
+            <IconButton>
+                <Badge badgeContent={totalItems} color='secondary' >
+                    <ShoppingCartIcon sx={{height:'50px',width:'50px'}}/>
+                </Badge>
+            </IconButton>
+        </Box>
     </main>
   )
 }

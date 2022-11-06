@@ -22,7 +22,7 @@ const PageWithNav = () => {
         <Route path='/exercise/:id' element={<ExerciseDetail/>}/>
         {/* <Route path='/contextus' element={<ContactUs/>}/> */}
     </Routes>
-    <Footer/>
+    {/* <Footer/> */}
     </React.Fragment>
   )
 }
