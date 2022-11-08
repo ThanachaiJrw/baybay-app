@@ -33,10 +33,10 @@ const Shop = () => {
   console.log('Cart =',cart)
 
   return (
-    <div>
-      {/* <Products products={products} onAddToCart={handleAddToCart} totalItems={cart.total_items}/> */}
-      <Cart cart={cart}/>
-    </div>
+      <div>
+        {/* <Products products={products} onAddToCart={handleAddToCart} totalItems={cart.total_items}/> */}
+        <Cart cart={cart}/>
+      </div>
   )
 }
 

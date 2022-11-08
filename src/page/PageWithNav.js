@@ -18,7 +18,7 @@ const PageWithNav = () => {
     <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/exercise' element={<Exercises/>}/>
-        <Route path='/Shop' element={<Shop/>}/>
+        <Route path='/Shop/*' element={<Shop/>}/>
         <Route path='/exercise/:id' element={<ExerciseDetail/>}/>
         {/* <Route path='/contextus' element={<ContactUs/>}/> */}
     </Routes>
