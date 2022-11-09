@@ -1,43 +1,32 @@
-import React, { useState ,useEffect } from 'react'
-import Cart from '../components/E-commerce/Cart'
-import Products from '../components/E-commerce/Products'
+import React from 'react'
+import { Grid ,IconButton , Box, Badge} from '@mui/material'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
 
-import { commerce } from '../utils/commerce'
+import ProductCard from '../components/E-commerce/ProductCard'
 
-const Shop = () => {
-  const [products,setProducts] = useState([])
-  const [cart, setCart] = useState([])
-
-  const fetchProducts =async()=>{
-
-    const {data} = await commerce.products.list();
-
-    setProducts(data)
-  }
-
-  const fetchCart = async() =>{
-    setCart(await commerce.cart.retrieve())
-  }
-  
-  const handleAddToCart =async(productId,quanitity)=>{
-    const item =await commerce.cart.add(productId,quanitity);
-
-    setCart(item.cart)
-  }
-
-  useEffect(()=>{
-    fetchProducts();
-    fetchCart();
-  },[]);
-
-  console.log('Cart =',cart)
-
+function Products({products , onAddToCart ,totalItems}) {
+    // console.log(products)
   return (
-      <div>
-        {/* <Products products={products} onAddToCart={handleAddToCart} totalItems={cart.total_items}/> */}
-        <Cart cart={cart}/>
-      </div>
+    <main>
+        <Grid container justifyContent='center' spacing={4}>
+            {products.map((product)=>(
+                <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+                    <ProductCard product={product} onAddToCart={onAddToCart}/>
+                </Grid>
+            ))}
+        </Grid>
+
+
+        <Box sx={{position:'fixed',bottom:'50px',right:'250px',height:'50px',width:'50px',borderRadius:'50%'}}>
+            <IconButton LinkComponent={Link} to='/cart'>
+                <Badge badgeContent={totalItems} color='secondary' >
+                    <ShoppingCartIcon sx={{height:'50px',width:'50px'}}/>
+                </Badge>
+            </IconButton>
+        </Box>
+    </main>
   )
 }
 
-export default Shop
+export default Products

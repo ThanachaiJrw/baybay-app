@@ -1,7 +1,7 @@
 import React from 'react'
 import { CardMedia ,CardContent ,CardActions ,Card , Typography , Button } from '@mui/material'
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item , handleUpdateCartQty ,handleRemoveFromCart }) => {
   return (
     <Card>
         <CardMedia image={item.image.url} alt={item.name} className='cartItemMedia' sx={{height:260}}/>
@@ -11,11 +11,11 @@ const CartItem = ({ item }) => {
         </CardContent>
         <CardActions className='cartItemCardActions' sx={{justifyContent:'space-between'}} >
             <div className='buttonCardAction' sx={{display:'flex',alignItems:'center'}}>
-                <Button type='Button' size='small'>-</Button>
+                <Button type='Button' size='small' onClick={()=>handleUpdateCartQty(item.id,item.quantity-1)}>-</Button>
                 <Typography>{item.quantity}</Typography>
-                <Button type='Button' size='small'>+</Button>
+                <Button type='Button' size='small' onClick={()=>handleUpdateCartQty(item.id,item.quantity+1)}>+</Button>
             </div>
-            <Button variant="contained" type="button" color="secondary">Remove</Button>
+            <Button variant="contained" type="button" color="secondary" onClick={()=>handleRemoveFromCart(item.id)}>Remove</Button>
         </CardActions>
     </Card>
   )
