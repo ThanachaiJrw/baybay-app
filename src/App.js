@@ -63,7 +63,7 @@ function App() {
     fetchCart();
   },[]);
 
-  console.log('Cart =',cart)
+  // console.log('Cart =',cart)
 
   return (
     <Box width='400px' m='auto' sx={{width:{xl:'1488px'}}}>
@@ -78,7 +78,7 @@ function App() {
                                             handleUpdateCartQty={handleUpdateCartQty}
                                             handleRemoveFromCart={handleRemoveFromCart}
                                             handleEmptyCart={handleEmptyCart}/>}/>
-        <Route path='/checkout' element={<Checkout/>}/> 
+        <Route path='/checkout' element={<Checkout cart={cart}/>}/> 
       </Routes>
       {/* {location.pathname!=='/checkout'?<Footer/>:null} */}
     </Box>
