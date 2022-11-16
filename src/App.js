@@ -21,8 +21,10 @@ function App() {
   const location = useLocation ()
 
   //E-commerce
-  const [products,setProducts] = useState([])
-  const [cart, setCart] = useState([])
+  const [products,setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [order,setOrder] = useState({});
+  const [errorMassage, setErrorMassage] = useState('');
 
   const fetchProducts =async()=>{
 
@@ -58,6 +60,22 @@ function App() {
     setCart(item.cart)
   }
 
+  const refreshCart=async()=>{
+    const newCart = await commerce.cart.refresh();
+    setCart(newCart)
+  }
+
+  const handleCaptureCheckout =async(checkoutTokenId,newOrder)=>{
+    try {
+      const inComingOrder = await commerce.checkout.capture(checkoutTokenId,newOrder)
+
+      setOrder(inComingOrder)
+      refreshCart();
+    } catch (error) {
+      setErrorMassage(error.data.error.message)
+    }
+  }
+
   useEffect(()=>{
     fetchProducts();
     fetchCart();
@@ -78,7 +96,7 @@ function App() {
                                             handleUpdateCartQty={handleUpdateCartQty}
                                             handleRemoveFromCart={handleRemoveFromCart}
                                             handleEmptyCart={handleEmptyCart}/>}/>
-        <Route path='/checkout' element={<Checkout cart={cart}/>}/> 
+        <Route path='/checkout' element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMassage}/>} /> 
       </Routes>
       {/* {location.pathname!=='/checkout'?<Footer/>:null} */}
     </Box>
