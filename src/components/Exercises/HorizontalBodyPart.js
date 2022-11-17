@@ -28,9 +28,8 @@ const RightArrow = () => {
   );
 };
 
-function HorizontalBodyPart({ data ,bodyPart , setBodyPart ,isBodyPart }) {
+const HorizontalBodyPart=({ data ,bodyPart , setBodyPart ,isBodyPart })=> (
 
-  return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
         {data.map((item)=>(
             <Box
@@ -46,6 +45,6 @@ function HorizontalBodyPart({ data ,bodyPart , setBodyPart ,isBodyPart }) {
         ))}
     </ScrollMenu>
   )
-}
+
 
 export default HorizontalBodyPart

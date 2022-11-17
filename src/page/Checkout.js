@@ -1,6 +1,6 @@
 import React ,{useState ,useEffect} from 'react'
 import { CssBaseline, Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@mui/material'
-import { Link ,useHistory } from 'react-router-dom'
+import { Link ,useNavigate } from 'react-router-dom'
 
 import AddressFrom from '../components/E-commerce/AddressFrom'
 import PaymentFrom from '../components/E-commerce/PaymentFrom'
@@ -13,7 +13,7 @@ const Checkout = ({cart ,order ,onCaptureCheckout,error}) => {
   const [checkoutToken, setCheckoutToken] = useState(null)
   const [shippingData, setShippingData] = useState({})
   const [isFinished,setIsFinished] = useState(false)  
-  const history = useHistory()
+  const navigate = useNavigate()
 
   useEffect(()=>{
     const generateToken =async()=>{
@@ -23,7 +23,7 @@ const Checkout = ({cart ,order ,onCaptureCheckout,error}) => {
         setCheckoutToken(token)
       } catch (error) {
         console.log(error)
-        history.pushState('/')
+        navigate('/')
       }
     }
 
