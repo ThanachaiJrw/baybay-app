@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import ProductCard from '../components/E-commerce/ProductCard'
 
-function Products({products , onAddToCart ,totalItems}) {
+function Shop({products , onAddToCart ,totalItems}) {
     // console.log(products)
   return (
     <main>
@@ -20,7 +20,7 @@ function Products({products , onAddToCart ,totalItems}) {
 
         <Box sx={{position:'fixed',bottom:'50px',right:'250px',height:'50px',width:'50px',borderRadius:'50%'}}>
             <IconButton LinkComponent={Link} to='/cart'>
-                <Badge badgeContent={totalItems} color='secondary' >
+                <Badge badgeContent={totalItems} color='error' >
                     <ShoppingCartIcon sx={{height:'50px',width:'50px'}}/>
                 </Badge>
             </IconButton>
@@ -29,4 +29,4 @@ function Products({products , onAddToCart ,totalItems}) {
   )
 }
 
-export default Products
+export default Shop
