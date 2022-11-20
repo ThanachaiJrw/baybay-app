@@ -1,40 +1,39 @@
-import { TextField ,Stack, Button , Box } from '@mui/material'
-import { styled } from '@mui/material/styles';
-import React, { useRef } from 'react';
+import { TextField ,Stack, Button , Box , Snackbar , Alert} from '@mui/material'
+import React, { useRef ,useState } from 'react';
 import emailjs from '@emailjs/browser';
 // import { useForm } from 'react-hook-form';
 
 const ContactUs = () => {
+  const [snack, setSnack] = useState(false)
+  const [snackbarStatus, setSnackbarStatus] = useState('')
+  const [massage, setMassage] = useState('')
 
-  const MyTextField = styled(TextField)({
-    '& label.Mui-focused': {
-      color: 'blue',
-    },
-
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'blue',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: 'blue',
-      },
-    },
-  });
-
-  // send email
+    // send email
   const forms = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
     console.log(forms.current)
 
-    // emailjs.sendForm('service_o9su67s', 'template_m5v9qen', forms.current, '1615g0ychu4KM3agU')
     emailjs.sendForm(`${process.env.REACT_APP_SERVICE_ID}`, `${process.env.REACT_APP_TEMPLATE_ID}`, forms.current, `${process.env.REACT_APP_PUBLIC_KEY}`)
       .then((result) => {
-          console.log(result.text);
+        setSnackbarStatus('success')
+        setSnack(true);
+        setMassage('Thank for contect me.');
       }, (error) => {
-          console.log(error.text);
+        setSnackbarStatus('error')
+        setSnack(true);
+        setMassage('Someting error try again later.');
       });
+  };
+
+  //snack bar
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnack(false);
   };
 
   return (
@@ -46,24 +45,18 @@ const ContactUs = () => {
       }}
       >
 
-        <form ref={forms} onSubmit={sendEmail}>
-        
-          <Stack columnGap={1} direction={{lg:'row',xs:'column'}} >
-            <MyTextField className='contact-from' label='First Name'  fullWidth name='fname' required
-           />
+        <form ref={forms} onSubmit={sendEmail} >
 
-            <MyTextField className='contact-from' label='Last Name' fullWidth name='lname' 
-            />
-
-          </Stack>
-          
-          <MyTextField className='contact-from' label='Phone Number' fullWidth name='number' 
+          <TextField className='contact-from' label='Name' fullWidth name='Name' required
+          />
+                    
+          <TextField className='contact-from' label='Phone Number' fullWidth name='number' 
           />
           
-          <MyTextField className='contact-from'  label='E-mail' fullWidth name='email' required
+          <TextField className='contact-from'  label='E-mail' fullWidth name='email' required
           />
           
-          <MyTextField className='contact-from' label='Message'  fullWidth rows={5} multiline  name='message' required
+          <TextField className='contact-from' label='Message'  fullWidth rows={5} multiline  name='message' required
           />
 
           <Box sx={{display:'flex',justifyContent:'flex-end'}}>
@@ -71,6 +64,12 @@ const ContactUs = () => {
               Let Connect.
             </Button>
           </Box> 
+
+          <Snackbar open={snack} autoHideDuration={3000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity={snackbarStatus} sx={{ width: '100%' }}>
+              {massage}
+            </Alert>
+          </Snackbar>
 
         </form> 
        </Stack>
