@@ -2,7 +2,12 @@ import React from 'react'
 import { CardMedia ,CardContent ,CardActions ,Card , Typography , IconButton, Box } from '@mui/material'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-const ProductCard = ({product , onAddToCart}) => {
+const ProductCard = ({product , onAddToCart , handleSnackbar}) => {
+
+  const allFuction=()=>{
+    handleSnackbar();
+    onAddToCart(product.id,1);
+  }
 
   return (
     <Card sx={{maxWidth:'100%'}} >
@@ -18,10 +23,10 @@ const ProductCard = ({product , onAddToCart}) => {
             </Typography>
           </Box>
 
-          <Typography variant='body2' color='textSecondary' dangerouslySetInnerHTML={{__html:product.description}}/>
+          <Typography variant='body2' color='textSecondary' dangerouslySetInnerHTML={{__html:product.description}} sx={{height:'50px'}}/>
 
           <CardActions disableSpacing className='cardActions' sx={{display:'flex',justifyContent:'flex-end'}}>
-            <IconButton aria-label='Add to Cart' onClick={()=>onAddToCart(product.id,1)} >
+            <IconButton aria-label='Add to Cart' onClick={()=>allFuction() } >
               <AddShoppingCartIcon/>
             </IconButton>
           </CardActions>

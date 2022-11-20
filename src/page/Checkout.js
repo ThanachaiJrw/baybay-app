@@ -86,12 +86,13 @@ const Checkout = ({cart ,order ,onCaptureCheckout,error}) => {
   return (
     <>
     <CssBaseline/>
+    <div className='toolbar' />
       <main className='layout'>
         <Paper className='paper'>
-          <Typography variant='h4' align='center' >
+          <Typography variant='h4' align='center' gutterBottom>
             Checkout
           </Typography>
-          <Stepper activeStep={activeStep} className='stepper'>
+          <Stepper activeStep={activeStep} className='stepper' >
             {steps.map((step)=>(
               <Step key={step}>
                 <StepLabel>{step}</StepLabel>

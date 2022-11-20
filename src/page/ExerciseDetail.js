@@ -39,6 +39,7 @@ const ExerciseDetail = () => {
 
   return (
     <Box>
+      <div className='toolbar' />
       <DetailOfExercise exerciseDetail={exerciseDetail}/>
       <ExerciseVideo exercisesVideos={exercisesVideos} name={exerciseDetail.name}/>
       <SimilarExercises targetMuscleExercise={targetMuscleExercise} equipmentExercises={equipmentExercises} />

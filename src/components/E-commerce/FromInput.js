@@ -13,6 +13,7 @@ const FromInput = ({ name, label, required }) => {
       name={name}
       render={({ field }) => (
         <TextField
+          variant="standard" 
           {...field}
           name={name}
           label={label}

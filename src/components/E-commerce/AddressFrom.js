@@ -55,7 +55,7 @@ const AddressFrom = ({checkoutToken ,next}) => {
 
   return (
     <>
-      <Typography variant='h6' gutterBottom>Shipping Address</Typography>
+      <Typography variant='h6' gutterBottom sx={{mt:'15px'}}>Shipping Address</Typography>
       <FormProvider {...method}>
         <form onSubmit={method.handleSubmit((data)=>next({...data,shippingCountry,shippingSubdivision,setShippingOption}))}>
           <Grid container spacing={3}>
@@ -67,7 +67,7 @@ const AddressFrom = ({checkoutToken ,next}) => {
             <FromInput required name='zip' label='ZIP / Postal Code'/>
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Country</InputLabel>
-              <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
+              <Select variant="standard"  value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}  >
                 {Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name })).map((item) => (
                   <MenuItem key={item.id} value={item.id}>
                     {item.label}
@@ -77,7 +77,7 @@ const AddressFrom = ({checkoutToken ,next}) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Subdivision</InputLabel>
-              <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
+              <Select variant="standard"  value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)} >
                 {Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name })).map((item) => (
                   <MenuItem key={item.id} value={item.id}>
                     {item.label}
@@ -87,7 +87,7 @@ const AddressFrom = ({checkoutToken ,next}) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Options</InputLabel>
-              <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
+              <Select variant="standard" value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                 {shippingOptions.map((sO) => ({ id: sO.id, label: `${sO.description} - (${sO.price.formatted_with_symbol})` })).map((item) => (
                   <MenuItem key={item.id} value={item.id}>
                     {item.label}

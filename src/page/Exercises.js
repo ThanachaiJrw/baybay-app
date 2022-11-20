@@ -12,6 +12,7 @@ const Exercises = () => {
   console.log(exercises)
   return (
     <Box>
+      <div className='toolbar' />
       <OtherBanner/>
       <SearchExercises setExercise={setExercise} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       <ExerciseSetCards exercises={exercises} bodyPart={bodyPart} setExercise={setExercise}/>

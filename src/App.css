@@ -36,7 +36,9 @@ a:hover {
   text-decoration: none;
 }
 
-
+.toolbar{
+  padding-top: 5%;
+}
 
 
 
@@ -320,9 +322,49 @@ a:hover {
 
 
 
-/*Contact*/
+
+
+
+/* E-Commerce */
+/* Cart */
+.container-cart{
+  border: rgb(88, 87, 87) 1px solid;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 10px #d2d2d2;
+  padding: 25px;
+}
+
+.cardDetail{
+  border-top: #c7c6c5 1px solid ;
+  padding-top: 10px;
+}
+
+/*Address from*/
+.layout{
+  width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.paper{
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 5%;
+}
+
+.stepper{
+  padding: 3 0 5;
+}
+
+
+
+
+/*respondsive*/
 
 @media screen and (max-width:1200px) {
+
+  /* Contact */
   .home-banner-img {
     display: none;
   }
@@ -339,11 +381,9 @@ a:hover {
 }
 
 @media screen and (max-width:400px) {
+
+  /* Contact */
   .exercise-card {
     width: 280px;
   }
 }
-
-
-
-/* E-Commerce */

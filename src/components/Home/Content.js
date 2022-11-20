@@ -9,15 +9,15 @@ const Content = () => {
       display='flex' direction='column' padding='0'
       >
         <Typography className='home-content main-content-box header-content' fontSize='26px' mb='5px' fontWeight='bold' >
-          Welcome to ours website.
+          Welcome to Bay-Bay.
         </Typography>
         
         <Stack mb='5px' >
-          <Typography className='home-content main-content-box'>
-            เว็บไซต์นี้จะนำเสนอการออกกำลังกายในรูปแบบต่างๆให้สืบค้น<br/>
-            มีการขายของและคำนวณสิ่งต่างๆโดยง่าย<br/>
-            เว็บนี้เป็นส่วนหนึ่งของResume ไม่ได้มีเจตนาเชิงพาณิชณ์<br/>
-            Thank you.Thanachai Weawsri. (Junior)
+          <Typography className='home-content main-content-box' variant='h5'>
+          Unlock all of your doubts about how to achieve your goal <br/> 
+          for workout and exercise plan by our tools and tutorial <br/>
+          Let’s find out with us about how to start and reach out your goal!<br/>
+          Thank you. Thanachai Weawsri. (Junior)
           </Typography >
         </Stack >
 

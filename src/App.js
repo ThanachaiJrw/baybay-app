@@ -85,20 +85,20 @@ function App() {
 
   return (
     <Box width='400px' m='auto' sx={{width:{xl:'1488px'}}}>
-      {/* {location.pathname!=='/checkout'?<Navbar/>:null} */}
+      {location.pathname!=='/checkout'?<Navbar/>:null}
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/exercise' element={<Exercises/>}/>
         <Route path='/exercise/:id' element={<ExerciseDetail/>}/>
 
-        <Route path='/Shop' element={<Shop products={products} onAddToCart={handleAddToCart} totalItems={cart.total_items} />}/>
+        <Route path='/shop' element={<Shop products={products} onAddToCart={handleAddToCart} totalItems={cart.total_items} />}/>
         <Route path='/cart' element={<Cart cart={cart}
                                             handleUpdateCartQty={handleUpdateCartQty}
                                             handleRemoveFromCart={handleRemoveFromCart}
                                             handleEmptyCart={handleEmptyCart}/>}/>
         <Route path='/checkout' element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMassage}/>} /> 
       </Routes>
-      {/* {location.pathname!=='/checkout'?<Footer/>:null} */}
+      {location.pathname==='/checkout'||location.pathname==='/shop'||location.pathname==='/cart'? null:<Footer/>}
     </Box>
   );
 }
