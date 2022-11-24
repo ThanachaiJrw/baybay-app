@@ -1,4 +1,4 @@
-import { TextField ,Stack, Button , Box , Snackbar , Alert} from '@mui/material'
+import { TextField ,Stack, Button , Box , Snackbar , Alert ,Typography} from '@mui/material'
 import React, { useRef ,useState } from 'react';
 import emailjs from '@emailjs/browser';
 // import { useForm } from 'react-hook-form';
@@ -37,23 +37,25 @@ const ContactUs = () => {
   };
 
   return (
-    <Stack direction={{xs:'colum',sm:'row'}}  justifyContent='flex-start' padding='10px' bgcolor='#fff' sx={{width:'100%'}}>
-      <Stack direction='column'  border='1px solid #000'
-      sx={{
-        '& .MuiTextField-root': { m: 1 },px:{sx:'0',lg:"42px"},
-        width:{xs:'90%',lg:'50%'}
-      }}
-      >
+    <Box bgcolor='#fff'>
+      <Typography variant='h2'>Contact Me Here!</Typography>
+      <Stack direction={{xs:'colum',sm:'row'}}  justifyContent='flex-start' padding='10px'  sx={{width:'100%'}}>
+        <Stack direction='column'  border='1px solid #000'
+        sx={{
+          '& .MuiTextField-root': { m: 1 },px:{sx:'0',lg:"42px"},
+          width:{xs:'90%',lg:'50%'}
+        }}
+        >
 
-        <form ref={forms} onSubmit={sendEmail} >
+        <form ref={forms}  >
 
           <TextField className='contact-from' label='Name' fullWidth name='Name' required
           />
                     
-          <TextField className='contact-from' label='Phone Number' fullWidth name='number' 
+          <TextField className='contact-from' label='Phone Number' fullWidth name='number' type='text' inputProps={{ inputMode: 'numeric'}}
           />
           
-          <TextField className='contact-from'  label='E-mail' fullWidth name='email' required
+          <TextField className='contact-from'  label='E-mail' fullWidth name='email' type='email' required
           />
           
           <TextField className='contact-from' label='Message'  fullWidth rows={5} multiline  name='message' required
@@ -74,6 +76,7 @@ const ContactUs = () => {
         </form> 
        </Stack>
      </Stack>
+    </Box>
   )
 }
 

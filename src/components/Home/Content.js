@@ -8,25 +8,25 @@ const Content = () => {
       <Grid container item className='main-content' xs={11} lg='8' 
       display='flex' direction='column' padding='0'
       >
-        <Typography className='home-content main-content-box header-content' fontSize='26px' mb='5px' fontWeight='bold' >
+        <Typography className='home-content main-content-box header-content' fontSize='26px' mb='5px' fontWeight='bold' width='800px'>
           Welcome to Bay-Bay.
         </Typography>
         
-        <Stack mb='5px' >
-          <Typography className='home-content main-content-box' variant='h5'>
+        <Stack mb='5px' width='800px'>
+          <Typography className='home-content main-content-box' variant='h5' >
           Unlock all of your doubts about how to achieve your goal <br/> 
           for workout and exercise plan by our tools and tutorial <br/>
           Let’s find out with us about how to start and reach out your goal!<br/>
-          Thank you. Thanachai Weawsri. (Junior)
+          
           </Typography >
         </Stack >
 
-        <Box className='home-content main-content-box' mb='5px'>
+        <Box className='home-content main-content-box' mb='5px' width='780px'>
           Example exercises.
           fetch Api exercises.
         </Box>
         
-        <Box className='home-content main-content-box' mb='5px'>
+        <Box className='home-content main-content-box' mb='5px' width='780px'>
           Example Shop
           Example Card Course
         </Box>

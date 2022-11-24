@@ -98,7 +98,7 @@ function App() {
                                             handleEmptyCart={handleEmptyCart}/>}/>
         <Route path='/checkout' element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMassage}/>} /> 
       </Routes>
-      {location.pathname==='/checkout'||location.pathname==='/shop'||location.pathname==='/cart'? null:<Footer/>}
+      {location.pathname==='/checkout'||location.pathname==='/shop'||location.pathname==='/cart' ||location.pathname==='/'? null:<Footer/>}
     </Box>
   );
 }

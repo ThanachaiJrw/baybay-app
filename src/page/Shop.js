@@ -40,9 +40,9 @@ function Shop({products , onAddToCart ,totalItems}) {
   return (
     <main>
       <div className='toolbar'/>
-        <Grid container justifyContent='center' spacing={4}>
+        <Grid container justifyContent='flex-start' spacing={4}>
             {products.map((product)=>(
-                <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+                <Grid item key={product.id} xs={12} sm={6} md={4}>
                     <ProductCard product={product} onAddToCart={onAddToCart} handleSnackbar={handleSnackbar}/>
                 </Grid>
             ))}
@@ -50,7 +50,7 @@ function Shop({products , onAddToCart ,totalItems}) {
 
 
         <Box sx={{position:'fixed',bottom:'50px',right:'250px',height:'50px',width:'50px',borderRadius:'50%'}}>
-            <IconButton LinkComponent={Link} to='/cart'>
+            <IconButton LinkComponent={Link} to='/cart' >
                 <Badge badgeContent={totalItems} color='error' >
                     <ShoppingCartIcon sx={{height:'50px',width:'50px'}}/>
                 </Badge>
@@ -59,7 +59,7 @@ function Shop({products , onAddToCart ,totalItems}) {
 
         <Snackbar
         open={snackbarOpen}
-        autoHideDuration={1000}
+        autoHideDuration={2000}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         onClose={handleCloseSnack}
         action={SnackbarAction}>
