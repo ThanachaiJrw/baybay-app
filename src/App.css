@@ -124,6 +124,31 @@ a:hover {
 
 
 
+/* Footer */
+.footer-icon{
+  color: #000;
+  font-size: 40px;
+  margin-left: 5px;
+}
+
+.linkin:hover{
+  color: #1515f8;
+}
+
+.github:hover{
+  color: #b5338a;
+}
+
+.whatsapp:hover{
+  color:#4f7942
+}
+
+.line:hover{
+  color: #3bb143;
+}
+
+
+
 /*Home*/
 
 /* Banner*/
@@ -156,7 +181,7 @@ a:hover {
     height: 100%;
     margin: 0;
     font-weight: 400;
-    font-size: 10vw;
+    font-size: 5vw;
     text-align: center;
     animation: anim-text-color 24s infinite linear;
     text-transform: uppercase;
@@ -199,23 +224,22 @@ a:hover {
 }
 
 /*Content*/
-.home-content{
-  font-size: 22px;
-  font-weight: 500;
-  color: #ED820E;
-  border: 1px solid #80400B;
-  background-color: #f7f4f2;
-  box-shadow: 0 0px 2px 0 #a7a4a2;
-  border-radius: 3px;
-  text-align: center;
-  padding: 10px;
+.content-image{
+  /* position: absolute; */
+  /* right: 40px;
+  top: 400px; */
+  width: 550px;
+  height: 750px;
+  /* margin-top: -330px; */
 }
 
-.header-content{
-  color:#fff ;
-  background:linear-gradient(90.0deg, #DD571C -11.91%, #80400B 100.58%);
-  border:none;
-  padding: 10px 0px ;
+.content-text-container{
+  padding: 30px;
+}
+
+.text-content{
+  border-left: 1px solid red ;
+  padding: 10px;
 }
 
 /* Exercise */
@@ -377,6 +401,14 @@ a:hover {
   }
   .react-horizontal-scrolling-menu--scroll-container {
     width: 500px;
+  }
+
+  .content-image-container,.content-image{
+    display: none;
+  }
+
+  .text-content{
+    padding: 2px;
   }
 }
 

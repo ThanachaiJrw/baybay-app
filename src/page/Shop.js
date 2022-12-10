@@ -49,7 +49,7 @@ function Shop({products , onAddToCart ,totalItems}) {
         </Grid>
 
 
-        <Box sx={{position:'fixed',bottom:'50px',right:'250px',height:'50px',width:'50px',borderRadius:'50%'}}>
+        <Box sx={{position:'fixed',bottom:'50px',right:{md:'250px',xs:'50%'},height:'50px',width:'50px',borderRadius:'50%'}}>
             <IconButton LinkComponent={Link} to='/cart' >
                 <Badge badgeContent={totalItems} color='error' >
                     <ShoppingCartIcon sx={{height:'50px',width:'50px'}}/>

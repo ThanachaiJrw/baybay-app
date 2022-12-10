@@ -2,11 +2,16 @@ import { TextField ,Stack, Button , Box , Snackbar , Alert ,Typography} from '@m
 import React, { useRef ,useState } from 'react';
 import emailjs from '@emailjs/browser';
 // import { useForm } from 'react-hook-form';
+import TeamMeet from '../../assets/img/content/Team up.jpg'
+
+import { useLocation } from 'react-router-dom';
 
 const ContactUs = () => {
   const [snack, setSnack] = useState(false)
   const [snackbarStatus, setSnackbarStatus] = useState('')
   const [massage, setMassage] = useState('')
+
+  const location = useLocation ()
 
     // send email
   const forms = useRef();
@@ -37,17 +42,18 @@ const ContactUs = () => {
   };
 
   return (
-    <Box bgcolor='#fff'>
+    <Box bgcolor='#fff' pt='20px'>
+      {location.pathname==='/contact' ? <div className='toolbar'/>:null}
       <Typography variant='h2'>Contact Me Here!</Typography>
       <Stack direction={{xs:'colum',sm:'row'}}  justifyContent='flex-start' padding='10px'  sx={{width:'100%'}}>
-        <Stack direction='column'  border='1px solid #000'
+        <Stack direction='column'  
         sx={{
           '& .MuiTextField-root': { m: 1 },px:{sx:'0',lg:"42px"},
           width:{xs:'90%',lg:'50%'}
         }}
         >
 
-        <form ref={forms}  >
+        <form ref={forms} onSubmit={sendEmail}>
 
           <TextField className='contact-from' label='Name' fullWidth name='Name' required
           />
@@ -58,11 +64,11 @@ const ContactUs = () => {
           <TextField className='contact-from'  label='E-mail' fullWidth name='email' type='email' required
           />
           
-          <TextField className='contact-from' label='Message'  fullWidth rows={5} multiline  name='message' required
+          <TextField className='contact-from' label='Message'  fullWidth rows={18} multiline  name='message' required
           />
 
           <Box sx={{display:'flex',justifyContent:'flex-end'}}>
-            <Button type="submit" variant="outlined" color="primary">
+            <Button type="submit" variant="contained" color="warning">
               Let Connect.
             </Button>
           </Box> 
@@ -75,6 +81,8 @@ const ContactUs = () => {
 
         </form> 
        </Stack>
+
+       <img src={TeamMeet} className='content-image' alt='TeamMeet'/>
      </Stack>
     </Box>
   )

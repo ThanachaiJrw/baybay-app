@@ -8,6 +8,7 @@ import Shop from './page/Shop'
 import Cart from './page/Cart';
 import ExerciseDetail from './page/ExerciseDetail'
 import Checkout from './page/Checkout'
+import ContactUs from './components/Home/ContactUs'
 
 import React, { useState ,useEffect } from 'react'
 import { commerce } from './utils/commerce'
@@ -97,8 +98,9 @@ function App() {
                                             handleRemoveFromCart={handleRemoveFromCart}
                                             handleEmptyCart={handleEmptyCart}/>}/>
         <Route path='/checkout' element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMassage}/>} /> 
+        <Route path='/contact' element={<ContactUs/>}/>
       </Routes>
-      {location.pathname==='/checkout'||location.pathname==='/shop'||location.pathname==='/cart' ||location.pathname==='/'? null:<Footer/>}
+      {location.pathname==='/checkout'||location.pathname==='/shop'||location.pathname==='/cart' ? null:<Footer/>}
     </Box>
   );
 }

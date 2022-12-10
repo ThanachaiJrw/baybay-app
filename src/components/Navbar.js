@@ -14,11 +14,11 @@ const Navbar = () => {
           <Link to='/' className='Nav-link'>Home</Link>
           <Link to='/exercise' className='Nav-link'>Exercises</Link>
           <Link to='/shop' className='Nav-link'>Shop</Link>
-          <a to='/' href='#contact' className='slid-animation'>
+          <Link to='/contact' href='#contact' className='slid-animation'>
             <span>
               Get in touch
             </span>
-          </a>
+          </Link>
         </Stack>
       </Toolbar>
     </Stack>

@@ -8,12 +8,13 @@ import Loading from './Loading';
 
 const ExerciseSetCards = ({exercises , bodyPart , setExercise}) => {
   const [currenPage,setCurrenPage] = useState(1);
-  const exercisesPerPage = 18
+  const exercisesPerPage =18
 
   //Page
   const indexOfLastExercise = currenPage*exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise-exercisesPerPage;
   const currentExercises = exercises.slice(indexOfFirstExercise,indexOfLastExercise)
+  console.log('exercises =',)
   
   useEffect(()=>{
     const fetchExerciseData = async()=>{
@@ -40,9 +41,10 @@ const ExerciseSetCards = ({exercises , bodyPart , setExercise}) => {
 
   return (
     <Box id='exercises'
-    sx={{mt:{lg:'110px'}}}
-    mt='50px'
+    sx={{pt:{lg:'110px'}}}
+    // mt='50px'
     p='20px'
+    bgcolor='#fff'
     >
       <Typography variant='h3' mb='46px'>
         Showing Results
@@ -52,13 +54,13 @@ const ExerciseSetCards = ({exercises , bodyPart , setExercise}) => {
           <ExercisesCard key={index} exercise={exercise}/>
         ))}
       </Stack>
-      <Stack mt='100px' alignItems='center'>
-          {exercises.lenght > 9 && (
+      <Stack mt='100px' alignItems='center' >
+          {exercises.length > exercisesPerPage && (
             <Pagination
+            variant="outlined"
             color='standard'
-            shape='rounded'
             defaultPage={1}
-            count={Math.ceil(exercises.lenght/exercisesPerPage)}
+            count={Math.ceil(exercises.length/exercisesPerPage)}
             page={currenPage}
             onChange={paginate}
             // onChange={(e)=>paginate(e, value)} ในMUI

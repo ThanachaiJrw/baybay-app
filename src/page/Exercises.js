@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box } from '@mui/material'
-import OtherBanner from '../components/Exercises/OtherBanner'
 import SearchExercises from '../components/Exercises/SearchExercises'
 import ExerciseSetCards from '../components/Exercises/ExerciseSetCards'
 import { useState } from 'react'
@@ -13,7 +12,6 @@ const Exercises = () => {
   return (
     <Box>
       <div className='toolbar' />
-      <OtherBanner/>
       <SearchExercises setExercise={setExercise} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       <ExerciseSetCards exercises={exercises} bodyPart={bodyPart} setExercise={setExercise}/>
     </Box>
